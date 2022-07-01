@@ -1,0 +1,15 @@
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.DataAccess\bin\Release\net5.0\CafeApp.DataAccess.deps.json
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.DataAccess\bin\Release\net5.0\CafeApp.DataAccess.dll
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.DataAccess\bin\Release\net5.0\ref\CafeApp.DataAccess.dll
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.DataAccess\bin\Release\net5.0\CafeApp.DataAccess.pdb
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.DataAccess\bin\Release\net5.0\CafeApp.Entities.dll
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.DataAccess\bin\Release\net5.0\CafeApp.Entities.pdb
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.DataAccess\obj\Release\net5.0\CafeApp.DataAccess.csproj.AssemblyReference.cache
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.DataAccess\obj\Release\net5.0\CafeApp.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.DataAccess\obj\Release\net5.0\CafeApp.DataAccess.AssemblyInfoInputs.cache
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.DataAccess\obj\Release\net5.0\CafeApp.DataAccess.AssemblyInfo.cs
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.DataAccess\obj\Release\net5.0\CafeApp.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.DataAccess\obj\Release\net5.0\CafeApp.DataAccess.csproj.CopyComplete
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.DataAccess\obj\Release\net5.0\CafeApp.DataAccess.dll
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.DataAccess\obj\Release\net5.0\ref\CafeApp.DataAccess.dll
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.DataAccess\obj\Release\net5.0\CafeApp.DataAccess.pdb
