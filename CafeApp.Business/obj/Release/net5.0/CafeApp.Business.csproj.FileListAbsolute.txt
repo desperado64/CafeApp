@@ -1,0 +1,17 @@
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Business\bin\Release\net5.0\CafeApp.Business.deps.json
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Business\bin\Release\net5.0\CafeApp.Business.dll
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Business\bin\Release\net5.0\ref\CafeApp.Business.dll
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Business\bin\Release\net5.0\CafeApp.Business.pdb
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Business\bin\Release\net5.0\CafeApp.DataAccess.dll
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Business\bin\Release\net5.0\CafeApp.Entities.dll
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Business\bin\Release\net5.0\CafeApp.DataAccess.pdb
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Business\bin\Release\net5.0\CafeApp.Entities.pdb
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Business\obj\Release\net5.0\CafeApp.Business.csproj.AssemblyReference.cache
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Business\obj\Release\net5.0\CafeApp.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Business\obj\Release\net5.0\CafeApp.Business.AssemblyInfoInputs.cache
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Business\obj\Release\net5.0\CafeApp.Business.AssemblyInfo.cs
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Business\obj\Release\net5.0\CafeApp.Business.csproj.CoreCompileInputs.cache
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Business\obj\Release\net5.0\CafeApp.Business.csproj.CopyComplete
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Business\obj\Release\net5.0\CafeApp.Business.dll
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Business\obj\Release\net5.0\ref\CafeApp.Business.dll
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Business\obj\Release\net5.0\CafeApp.Business.pdb

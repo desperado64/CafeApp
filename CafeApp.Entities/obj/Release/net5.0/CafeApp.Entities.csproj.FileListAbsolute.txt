@@ -1,0 +1,12 @@
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Entities\bin\Release\net5.0\CafeApp.Entities.deps.json
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Entities\bin\Release\net5.0\CafeApp.Entities.dll
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Entities\bin\Release\net5.0\ref\CafeApp.Entities.dll
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Entities\bin\Release\net5.0\CafeApp.Entities.pdb
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Entities\obj\Release\net5.0\CafeApp.Entities.csproj.AssemblyReference.cache
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Entities\obj\Release\net5.0\CafeApp.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Entities\obj\Release\net5.0\CafeApp.Entities.AssemblyInfoInputs.cache
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Entities\obj\Release\net5.0\CafeApp.Entities.AssemblyInfo.cs
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Entities\obj\Release\net5.0\CafeApp.Entities.csproj.CoreCompileInputs.cache
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Entities\obj\Release\net5.0\CafeApp.Entities.dll
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Entities\obj\Release\net5.0\ref\CafeApp.Entities.dll
+C:\Users\mg\source\repos\desperado64\CafeApp\CafeApp.Entities\obj\Release\net5.0\CafeApp.Entities.pdb
