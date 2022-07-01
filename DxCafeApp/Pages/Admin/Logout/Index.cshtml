@@ -1,0 +1,18 @@
+﻿@page
+@model DxCafeApp.Pages.Admin.Logout.IndexModel
+
+
+<meta http-equiv="refresh" content="3;URL=../../">
+
+<div class="p-5">
+    @{
+        
+        if (ViewData["IsMessage"].Equals("True"))
+        {
+            <div class="alert alert-warning" role="alert">
+                @ViewData["Message"].ToString()
+            </div>
+        }
+
+    }
+</div>

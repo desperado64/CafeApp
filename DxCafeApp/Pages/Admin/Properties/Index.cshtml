@@ -1,0 +1,37 @@
+﻿@page
+@model DxCafeApp.Pages.Admin.Properties.IndexModel
+@using CafeApp.Entities.Concrete.Tables
+
+<div class="p-2">
+    <h2>Property Panel</h2>
+
+    @(Html.DevExtreme().DataGrid<Property>()
+        .ID("gridContainer")
+        .Editing(editing => {
+            editing.Mode(GridEditMode.Form);
+            editing.AllowUpdating(true);
+            editing.AllowAdding(true);
+            editing.AllowDeleting(true);
+        })
+        .Columns(columns => {
+
+            columns.AddFor(m => m.Key);
+
+            columns.AddFor(m => m.Value);
+
+        })
+        .AllowColumnReordering(true)
+        .ShowBorders(true)
+        .Grouping(grouping => grouping.AutoExpandAll(true))
+        .SearchPanel(searchPanel => searchPanel.Visible(true))
+        .GroupPanel(groupPanel => groupPanel.Visible(true))
+        .Paging(paging => paging.PageSize(10))
+        .DataSource(d => d.Mvc()
+            .Controller("Property")
+            .LoadAction("Get")
+            .InsertAction("Post")
+            .UpdateAction("Put")
+            .Key("PropertyID")
+        )
+    )
+    </div>

@@ -1,0 +1,12 @@
+C:\Users\mg\source\repos\CafeApp\Currency.Api\bin\Debug\net5.0\Currency.Api.deps.json
+C:\Users\mg\source\repos\CafeApp\Currency.Api\bin\Debug\net5.0\Currency.Api.dll
+C:\Users\mg\source\repos\CafeApp\Currency.Api\bin\Debug\net5.0\ref\Currency.Api.dll
+C:\Users\mg\source\repos\CafeApp\Currency.Api\bin\Debug\net5.0\Currency.Api.pdb
+C:\Users\mg\source\repos\CafeApp\Currency.Api\obj\Debug\net5.0\Currency.Api.csproj.AssemblyReference.cache
+C:\Users\mg\source\repos\CafeApp\Currency.Api\obj\Debug\net5.0\Currency.Api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mg\source\repos\CafeApp\Currency.Api\obj\Debug\net5.0\Currency.Api.AssemblyInfoInputs.cache
+C:\Users\mg\source\repos\CafeApp\Currency.Api\obj\Debug\net5.0\Currency.Api.AssemblyInfo.cs
+C:\Users\mg\source\repos\CafeApp\Currency.Api\obj\Debug\net5.0\Currency.Api.csproj.CoreCompileInputs.cache
+C:\Users\mg\source\repos\CafeApp\Currency.Api\obj\Debug\net5.0\Currency.Api.dll
+C:\Users\mg\source\repos\CafeApp\Currency.Api\obj\Debug\net5.0\ref\Currency.Api.dll
+C:\Users\mg\source\repos\CafeApp\Currency.Api\obj\Debug\net5.0\Currency.Api.pdb

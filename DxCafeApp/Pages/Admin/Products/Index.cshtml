@@ -1,0 +1,50 @@
+﻿@page
+@model DxCafeApp.Pages.Admin.Products.IndexModel
+@using CafeApp.Entities.Concrete.Tables
+
+
+<div class="p-2">
+    <h2>Product Panel</h2>
+
+    @(Html.DevExtreme().DataGrid<Product>()
+        .ID("gridContainer")
+        .Editing(editing => {
+            editing.Mode(GridEditMode.Form);
+            editing.AllowUpdating(true);
+            editing.AllowAdding(true);
+            editing.AllowDeleting(true);
+        })
+        .Columns(columns => {
+
+            columns.AddFor(m => m.ProductName);
+
+            columns.AddFor(m => m.CategoryID).Caption("Category")
+                .Width(125)
+                .Lookup(lookup => lookup
+                    .DataSource(d => d.Mvc().Controller("Category").LoadAction("Get").Key("CategoryID"))
+                    .DisplayExpr("CategoryName")
+                    .ValueExpr("CategoryID")
+                );
+
+            columns.AddFor(m => m.Price).Width(75);
+
+            columns.AddFor(m => m.IsDeleted).Width(75);
+
+            columns.AddFor(m => m.ImagePath);
+
+        })
+        .AllowColumnReordering(true)
+        .ShowBorders(true)
+        .Grouping(grouping => grouping.AutoExpandAll(true))
+        .SearchPanel(searchPanel => searchPanel.Visible(true))
+        .GroupPanel(groupPanel => groupPanel.Visible(true))
+        .Paging(paging => paging.PageSize(10))
+        .DataSource(d => d.Mvc()
+            .Controller("Product")
+            .LoadAction("Get")
+            .InsertAction("Post")
+            .UpdateAction("Put")
+            .Key("ProductID")
+        )
+    )
+</div>
