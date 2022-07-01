@@ -1,0 +1,46 @@
+﻿@page
+@model DxCafeApp.Pages.Admin.Categories.IndexModel
+@using CafeApp.Entities.Concrete.Tables
+
+<div class="p-2">
+
+    <h2>Category Panel</h2>
+
+    @(Html.DevExtreme().DataGrid<Category>()
+        .ID("gridContainer")
+        .Editing(editing => {
+            editing.Mode(GridEditMode.Form);
+            editing.AllowUpdating(true);
+            editing.AllowAdding(true);
+            editing.AllowDeleting(true);
+        })
+        .Columns(columns => {
+
+            columns.AddFor(m => m.CategoryName);
+
+            columns.AddFor(m => m.ParentCategoryID).Caption("ParentCategory")
+                .Width(125)
+                .Lookup(lookup => lookup
+                    .DataSource(d => d.Mvc().Controller("Category").LoadAction("Get").Key("CategoryID"))
+                    .DisplayExpr("CategoryName")
+                    .ValueExpr("CategoryID")
+                );
+
+            columns.AddFor(m => m.IsDeleted).Width(75);
+
+        })
+        .AllowColumnReordering(true)
+        .ShowBorders(true)
+        .Grouping(grouping => grouping.AutoExpandAll(true))
+        .SearchPanel(searchPanel => searchPanel.Visible(true))
+        .GroupPanel(groupPanel => groupPanel.Visible(true))
+        .Paging(paging => paging.PageSize(10))
+        .DataSource(d => d.Mvc()
+            .Controller("Category")
+            .LoadAction("Get")
+            .InsertAction("Post")
+            .UpdateAction("Put")
+            .Key("CategoryID")
+        )
+    )
+</div>

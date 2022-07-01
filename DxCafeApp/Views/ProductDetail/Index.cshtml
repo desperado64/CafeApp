@@ -1,0 +1,119 @@
+﻿
+@model dynamic
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+}
+
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-3 product_img"">
+            <div class="bd-placeholder-img card-img-top" width="100%" height="225">
+                <img src=@Model.Product.ImagePath class="card-img-top" alt=@Model.Product.ProductName>
+            </div>
+        </div>
+        <div class="col-md-9 product_content">
+            <small>@Model.Product.CategoryName</small>
+
+            <h1>@Model.Product.ProductName</h1>
+
+            <h3 class="cost" data=@Model.Product.Price.ToString()><span id="spanUsd" class="glyphicon glyphicon-usd"></span> </h3>
+
+
+            @*<h3 class="cost"><span class="glyphicon glyphicon-usd"></span> 75.00 <small class="pre-cost"><span class="glyphicon glyphicon-usd"></span> 60.00</small></h3>*@
+            <!--<div class="row">
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <select class="form-control" name="select">
+                    <option value="" selected="">Color</option>
+                    <option value="black">Black</option>
+                    <option value="white">White</option>
+                    <option value="gold">Gold</option>
+                    <option value="rose gold">Rose Gold</option>
+                </select>
+            </div>-->
+            <!-- end col -->
+            <!--<div class="col-md-4 col-sm-6 col-xs-12">
+                <select class="form-control" name="select">
+                    <option value="">Capacity</option>
+                    <option value="">16GB</option>
+                    <option value="">32GB</option>
+                    <option value="">64GB</option>
+                    <option value="">128GB</option>
+                </select>
+            </div>-->
+            <!-- end col -->
+            <!--<div class="col-md-4 col-sm-12">
+                <select class="form-control" name="select">
+                    <option value="" selected="">QTY</option>
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                </select>
+            </div>-->
+            <!-- end col -->
+            <!--</div>-->
+            @*<div class="space-ten"></div>
+                <div class="btn-ground">
+                    <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Add To Cart</button>
+                    <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-heart"></span> Add To Wishlist</button>
+                </div>*@
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 product_content">
+            <h4>Property:</h4>
+            @foreach (var item in @Model.Properties)
+            {
+                <div class="row">
+                    <div class="col-3 col-md-3 border border-light">
+                        @item.Key
+                    </div>
+                    <div class="col-3 col-md-3 border border-light">
+                        @item.Value
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+
+    <br />
+    <br />
+
+    <div class="row">
+        <div class="col-md-12 product_content">
+            <h4>Currencies:</h4>
+            @foreach (var item in @Model.Currencies)
+            {
+                <div class="row">
+                    <div class="col-3 col-md-3 border border-light">
+                        @item.Key
+                    </div>
+                    <div class="col-3 col-md-9 border border-light">
+                        @item.Value
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var dollarUs = Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+    });
+
+
+
+    $("h3.cost").ready(function () {
+        let data = $("h3.cost").attr("data");
+        $("span#spanUsd").text(dollarUs.format(data.replace(",", ".")));
+    });
+
+</script>
+

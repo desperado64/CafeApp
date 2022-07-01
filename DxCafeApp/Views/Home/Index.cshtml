@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+}
+
+@model dynamic
+@using DevExtreme.AspNet.Mvc
+
+@{ 
+    int i = 0;
+}
+
+<div class="album py-5 bg-body">
+    <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+             
+            @foreach (var item in Model.Products)
+            {
+                string p = "p" + i.ToString();
+                string s = "s" + i.ToString();
+                <div class="col ">
+                    <div class="card shadow-sm">
+                        @try
+                        {
+                        <div class="dx-gallery-item-image">
+                            <img class="p-md-4 card-img w-auto" src=@item.ImagePath style="align-self:inherit;" height="180" alt=@item.ProductName>
+                        </div>
+              
+
+                        }
+                        catch
+                        { <svg class="bd-placeholder-img card-img-top" width="100%" height="240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Error</title><rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Not Loading</text></svg>
+                        }
+
+
+                        <div class="card-body" style="height:200px;">
+                            <small class="text-muted">@item.CategoryName</small>
+                            <p id=@p class="card-text" data=@item.Price.ToString()>@item.ProductName</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" onclick="GoDetail(@item.ProductID)" class="btn btn-sm btn-outline-secondary">Detail</button>
+                                </div>
+                                <small id=@s class="text-muted">
+                                    @*@(Html.DevExtreme().TextBox().MaskRules(Format.Currency).Disabled(true).StylingMode(EditorStylingMode.Filled).Value(item.Price.ToString()))*@
+
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                i++;
+            }
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var dollarUs = Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+    });
+
+    function GoDetail(id) {
+        var base_url = window.location.origin;
+        window.location.href = base_url + "/ProductDetail/" + id;
+    }
+
+
+    $("p.card-text").ready(function () {
+        const elements = document.getElementsByClassName("card-text");
+        for (var i = 0; i < elements.length; i++) {
+            let data = $("p#p" + i).attr("data");
+            $("small#s" + i).text(dollarUs.format(data.replace(",",".")))
+        }
+      
+    });
+
+</script>
+

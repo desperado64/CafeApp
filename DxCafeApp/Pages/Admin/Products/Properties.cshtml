@@ -1,0 +1,48 @@
+﻿@page
+@model DxCafeApp.Pages.Admin.Products.PropertiesModel
+@using CafeApp.Entities.Concrete.Tables
+
+<div class="p-2">
+    <h2>Properties of Product Panel</h2>
+
+    @(Html.DevExtreme().DataGrid<ProductProperty>()
+        .ID("gridContainer")
+        .Editing(editing => {
+            editing.Mode(GridEditMode.Form);
+            editing.AllowUpdating(true);
+            editing.AllowAdding(true);
+            editing.AllowDeleting(true);
+        })
+        .Columns(columns => {
+
+
+            columns.AddFor(m => m.ProductID).Caption("Product")
+            .Lookup(lookup => lookup
+                .DataSource(d => d.Mvc().Controller("Product").LoadAction("Get").Key("ProductID"))
+                .DisplayExpr("ProductName")
+                .ValueExpr("ProductID")
+            );
+
+            columns.AddFor(m => m.PropertyID).Caption("Property")
+             .Lookup(lookup => lookup
+             .DataSource(d => d.Mvc().Controller("Property").LoadAction("Get").Key("PropertyID"))
+             .DisplayExpr("Value")
+             .ValueExpr("PropertyID")
+            );
+
+        })
+        .AllowColumnReordering(true)
+        .ShowBorders(true)
+        .Grouping(grouping => grouping.AutoExpandAll(true))
+        .SearchPanel(searchPanel => searchPanel.Visible(true))
+        .GroupPanel(groupPanel => groupPanel.Visible(true))
+        .Paging(paging => paging.PageSize(10))
+        .DataSource(d => d.Mvc()
+            .Controller("ProductProperty")
+            .LoadAction("Get")
+            .InsertAction("Post")
+            .UpdateAction("Put")
+            .Key("ProductPropertyID")
+        )
+    )
+</div>

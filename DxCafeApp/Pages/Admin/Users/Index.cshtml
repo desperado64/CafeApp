@@ -1,0 +1,55 @@
+﻿@page
+@model DxCafeApp.Pages.Admin.Users.IndexModel
+@using CafeApp.Entities.Concrete.Tables
+
+<div class="p-2">
+    <h2>Users Panel</h2>
+
+    @(Html.DevExtreme().DataGrid<User>()
+        .ID("gridContainer")
+        .Editing(editing => {
+            editing.Mode(GridEditMode.Form);
+            editing.AllowUpdating(true);
+            editing.AllowAdding(true);
+            editing.AllowDeleting(true);
+        })
+        .OnEditorPreparing(@<text>
+                  function (e) {
+                     if (e.parentType == 'dataRow' && e.dataField == "SaltPassword") {
+                             e.editorOptions.mode = "password";
+                    }
+                     }
+         </text>)
+        .Columns(columns => {
+            columns.AddFor(m => m.UserName);
+
+            columns.AddFor(m => m.Name);
+
+            columns.AddFor(m => m.Surname);
+
+            columns.AddFor(m => m.SaltPassword)
+                .Width(170)
+                .CustomizeText(@<text>
+                                function(cellInfo) {
+                                    return '*****';
+                                }
+                                    </text>);
+
+        })
+        .AllowColumnReordering(true)
+        .ShowBorders(true)
+        .Grouping(grouping => grouping.AutoExpandAll(true))
+        .SearchPanel(searchPanel => searchPanel.Visible(true))
+        .GroupPanel(groupPanel => groupPanel.Visible(true))
+        .Paging(paging => paging.PageSize(10))
+        .DataSource(d => d.Mvc()
+            .Controller("User")
+            .LoadAction("Get")
+            .UpdateAction("Put")
+            .InsertAction("Post")
+            .DeleteAction("Delete")
+            .Key("UserID")
+        )
+
+    )
+</div>

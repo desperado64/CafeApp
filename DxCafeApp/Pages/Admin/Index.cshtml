@@ -1,0 +1,134 @@
+﻿@page
+@model DxCafeApp.Pages.Admin.IndexModel
+@using DxCafeApp.Models;
+
+
+<style>
+    #pie {
+        height: 440px;
+    }
+</style>
+
+
+<div class="p-2">
+
+    <h2>Admin - Dashboard</h2>
+    @(Html.DevExtreme().PieChart()
+    .ID("pie")
+    .Palette(VizPalette.Ocean)
+    .Type(PieChartType.Doughnut)
+    .Title("Product Count In Categories")
+    .Tooltip(t => t
+        .Enabled(true)
+        .Format(Format.Decimal)
+        .CustomizeTooltip(@<text>
+            function(arg) {
+                return {
+                    text: arg.valueText + " - " + (arg.percent * 100).toFixed(2) + "%"
+                };
+            }
+        </text>)
+    )
+    .Legend(l => l
+        .HorizontalAlignment(HorizontalAlignment.Right)
+        .VerticalAlignment(VerticalEdge.Top)
+        .Margin(0)
+    )
+    .Export(e => e.Enabled(true))
+    .Series(s => s
+        .Add()
+        .ArgumentField("CategoryName")
+        .ValueField("ProductCount")
+        .Label(l => l
+            .Visible(true)
+            .Format(Format.Decimal)
+            .Connector(c => c.Visible(true))
+        )
+    )
+    .DataSource(d => d.Mvc().Controller("Dashboard").LoadAction("Pie").Key("CategoryID"))
+)
+
+    <br /><br />
+
+    <h2>Daily Prices</h2>
+
+    @(Html.DevExtreme().DataGrid<DailyPrice>()
+    .ID("gridContainer")
+    .DataSource(d => d.Array().Data(new JS("products")).Key("ProductID"))
+    .DataSourceOptions(o => o.ReshapeOnPush(true))
+    .RepaintChangesOnly(true)
+    .ColumnAutoWidth(true)
+    .ShowBorders(true)
+    .Paging(p => p.PageSize(10))
+    .Columns(columns => {
+        columns.AddFor(m => m.ParentCategoryName);
+        columns.AddFor(m => m.CategoryName);
+        columns.AddFor(m => m.ProductName);
+        columns.AddFor(m => m.Price)
+             .DataType(GridColumnDataType.Number)
+            .Format(Format.Currency);
+        columns.AddFor(m => m.PriceTL)
+          .DataType(GridColumnDataType.Number)
+              .Format(new JS("xcurrency"));
+    }).Summary(s =>
+        s.TotalItems(totalItems =>
+        {
+            totalItems.Add()
+                .SummaryType(SummaryType.Count)
+                .Column("ProductName");
+            totalItems.Add()
+                .SummaryType(SummaryType.Sum)
+                .DisplayFormat("{0}")
+                .ValueFormat(Format.Currency)
+                .Column("Price");
+            totalItems.Add()
+                .SummaryType(SummaryType.Sum)
+                .DisplayFormat("{0}")
+                .ValueFormat(new JS("xcurrency"))
+                .Column("PriceTL");
+        })
+    )
+)
+
+<script>
+
+    var xcurrency = { style: "currency", currency: "TRY", useGrouping: true };
+
+    var products = [];
+    //async function fetchAsync() {
+    //    // await response of fetch call
+    //    let response = await fetch('/api/Dashboard/DailyPrices');
+    //    // only proceed once promise is resolved
+    //    let data = await response.json();
+    //    // only proceed once second promise is resolved
+
+    //    return data
+    //}
+
+    $(function () {
+        dailyPrices();
+        setInterval(function () {            
+
+            dailyPrices();
+            
+        },10000)
+    });
+
+    function dailyPrices() {
+        fetch('/api/Dashboard/DailyPrices')
+            .then(response => response.json())
+            .then(x => {
+                var grid = $('#gridContainer').dxDataGrid('instance');
+                grid.option('dataSource', []);
+                var productsStore = $('#gridContainer').dxDataGrid("getDataSource").store();
+                for (var i = 0; i < x.length; i++) {
+                    productsStore.push([
+                        { type: "insert", data: x[i] }
+                    ])
+                }
+            });
+    }
+
+</script>
+
+</div>
